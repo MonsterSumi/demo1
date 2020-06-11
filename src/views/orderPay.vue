@@ -1,5 +1,7 @@
 <template>
-	<div></div>
+	<div>
+		<p>order-pay</p>
+	</div>
 </template>
 
 <script>

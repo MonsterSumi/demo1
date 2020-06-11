@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<p>order-list</p>
+		<p>order-confirm</p>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "order-list"
+		name: "order-confirm"
 	}
 </script>
 
