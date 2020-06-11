@@ -8,6 +8,8 @@
 
 </style>
 <script>
+	import storage from './storage';
+
 	export default {
 		name: 'app',
 		components: {},
@@ -15,6 +17,7 @@
 			return {}
 		},
 		mounted() {
+			storage.clear()
 		}
 	}
 </script>
