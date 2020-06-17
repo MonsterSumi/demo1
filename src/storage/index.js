@@ -14,7 +14,7 @@ function hasOwnProperty(obj, key) {
 export default {
 	/**
 	 * 设置sessionStorage的方法.
-	 * @param {string} key - sessionStorage的key
+	 * @param {JSON/string} key - sessionStorage的key
 	 * @param {string/number/Object} value - sessionStorage的key对应的值
 	 * @param {$Rest} module_name - 如果有更多层key嵌套，按照嵌套顺序传入key值
 	 * @example
@@ -32,8 +32,8 @@ export default {
 				_storage[key] = value;
 				window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(_storage));
 			}
-		} else {
-			window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(key));
+		} else {//直接穿JSON的情况
+			window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(key || {}));
 		}
 
 	},
@@ -75,7 +75,7 @@ export default {
 				let _value = _storage;
 				for (let i = 0; i < moudle_name.length; i++) {
 					if (hasOwnProperty(_value, moudle_name[i])) {
-						if (i === moudle_name.length - 1) {
+						if (i == moudle_name.length - 1) {
 							delete _value[moudle_name[i]];
 						} else {
 							_value = _value[moudle_name[i]];
@@ -91,7 +91,7 @@ export default {
 			}
 			this.setItem(_storage);
 		} else {
-			this.setItem({});
+			this.setItem();
 		}
 	}
 }
