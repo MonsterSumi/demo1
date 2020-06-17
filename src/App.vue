@@ -17,7 +17,7 @@
 			return {}
 		},
 		mounted() {
-			storage.clear()
+			storage.clear();
 		}
 	}
 </script>
